@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, ImageBackground } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 import StartGameScreen from "./screens/StartGameScreen";
@@ -10,7 +10,14 @@ const App: React.FC = () => {
       colors={["#ff6e7f", "#bfe9ff"]} // Gradient colors
       style={(styles.gradient, styles.rootScreen)}
     >
-      <StartGameScreen />
+      <ImageBackground
+        source={require("./assets/images/background.png")}
+        resizeMode="cover"
+        style={styles.rootScreen}
+        imageStyle={styles.backgroundImage}
+      >
+        <StartGameScreen />
+      </ImageBackground>
     </LinearGradient>
   );
 };
@@ -23,6 +30,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  backgroundImage: {
+    opacity: 0.3,
   },
 });
 
