@@ -15,7 +15,7 @@ const App: React.FC = () => {
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />;
 
   if (userNumber) {
-    screen = <GameScreen />;
+    screen = <GameScreen userNumber={0} />;
   }
   return (
     <LinearGradient

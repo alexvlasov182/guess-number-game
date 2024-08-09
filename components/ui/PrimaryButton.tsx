@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
 
-import Colors from "../constants/colors";
+import Colors from "../../constants/colors";
 
 // Define the type of the component props
 interface PrimaryButtonProps {
