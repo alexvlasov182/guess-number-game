@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
 
+import Colors from "../constants/colors";
+
 // Define the type of the component props
 interface PrimaryButtonProps {
   onPress: () => void;
@@ -16,7 +18,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({ children, onPress }) => {
             : styles.buttonInnerContainer
         }
         onPress={onPress}
-        android_ripple={{ color: "#640233" }}
+        android_ripple={{ color: Colors.primary600 }}
       >
         <Text style={styles.buttonText}>{children}</Text>
       </Pressable>
@@ -33,7 +35,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   buttonInnerContainer: {
-    backgroundColor: "#72063c",
+    backgroundColor: Colors.primary600,
     paddingVertical: 8,
     paddingHorizontal: 16,
     elevation: 2,
