@@ -21,7 +21,7 @@ const App: React.FC = () => {
   };
 
   const startNewGameHandler = () => {
-    setUserNumber(null);
+    setUserNumber(undefined);
     setGuessRounds(0);
   };
 

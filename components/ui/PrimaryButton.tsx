@@ -8,7 +8,7 @@ interface PrimaryButtonProps {
   onPress: () => void;
   children: React.ReactNode; // Type for children prop
 }
-const PrimaryButton: React.FC<PrimaryButtonProps> = ({ children, onPress }) => {
+const PrimaryButton: React.FC<PrimaryButtonProps> = ({ onPress, children }) => {
   return (
     <View style={styles.buttonOuterContainer}>
       <Pressable

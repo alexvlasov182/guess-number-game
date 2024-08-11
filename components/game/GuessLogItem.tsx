@@ -2,7 +2,13 @@ import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import Colors from "../../constants/colors";
 
-const GuessLogItem: React.FC = ({ roundNumber, guess }) => {
+// Define the props interface
+interface GuessLogItemProps {
+  roundNumber: number;
+  guess: number;
+}
+
+const GuessLogItem: React.FC<GuessLogItemProps> = ({ roundNumber, guess }) => {
   return (
     <View style={styles.listItem}>
       <Text style={styles.itemText}>#{roundNumber}</Text>

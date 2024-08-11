@@ -29,8 +29,8 @@ interface GameScreenProps {
 
 const GameScreen: React.FC<GameScreenProps> = ({ userNumber, onGameOver }) => {
   const initialGuess = generateRandomBetween(1, 100, userNumber);
-  const [currentGuess, setCurrentGuess] = useState(initialGuess);
-  const [guessRounds, setGuessRounds] = useState([]);
+  const [currentGuess, setCurrentGuess] = useState<number>(initialGuess);
+  const [guessRounds, setGuessRounds] = useState<number[]>([]);
 
   useEffect(() => {
     if (currentGuess === userNumber) {
@@ -96,13 +96,13 @@ const GameScreen: React.FC<GameScreenProps> = ({ userNumber, onGameOver }) => {
 
         <FlatList
           data={guessRounds}
-          renderItem={(itemData) => (
+          renderItem={({ item, index }) => (
             <GuessLogItem
-              roundNumber={guessRoundsListLength - itemData.index}
-              guess={itemData.item}
+              roundNumber={guessRoundsListLength - index}
+              guess={item}
             />
           )}
-          keyExtractor={(item) => item}
+          keyExtractor={(item) => item.toString()}
         />
       </View>
     </View>

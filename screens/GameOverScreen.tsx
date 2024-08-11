@@ -1,9 +1,26 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  GestureResponderEvent,
+} from "react-native";
 import Title from "../components/ui/Title";
 import PrimaryButton from "../components/ui/PrimaryButton";
 
-const GameOverScreen = ({ roundsNumber, userNumber, onStartNewGame }) => {
+// Define the interface for the props
+interface GameOverScreenProps {
+  roundsNumber: number;
+  userNumber: number;
+  onStartNewGame: () => void; // Type for onPress handler
+}
+
+const GameOverScreen: React.FC<GameOverScreenProps> = ({
+  roundsNumber,
+  userNumber,
+  onStartNewGame,
+}) => {
   return (
     <View style={styles.rootContainer}>
       <Title>GAME OVER</Title>
