@@ -36,6 +36,11 @@ const GameScreen: React.FC<GameScreenProps> = ({ userNumber, onGameOver }) => {
     }
   }, [currentGuess, userNumber, onGameOver]);
 
+  useEffect(() => {
+    minBoundary = 1;
+    maxBoundary = 100;
+  }, []);
+
   const nextGuessHandler = (direction: "lower" | "greater") => {
     // direction => 'lower', 'greater'
     if (

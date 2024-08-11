@@ -9,6 +9,7 @@ import GameOverScreen from "./screens/GameOverScreen";
 const App: React.FC = () => {
   const [userNumber, setUserNumber] = useState<number | undefined>(undefined);
   const [gameIsOver, setGameIsOver] = useState(true);
+  const [guessRounds, setGuessRounds] = useState(0);
 
   const pickedNumberHandler = (pickedNumber: number) => {
     setUserNumber(pickedNumber);
@@ -17,6 +18,11 @@ const App: React.FC = () => {
 
   const gameOverHandler = () => {
     setGameIsOver(true);
+  };
+
+  const startNewGameHandler = () => {
+    setUserNumber(null);
+    setGuessRounds(0);
   };
 
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />;
@@ -28,7 +34,13 @@ const App: React.FC = () => {
   }
 
   if (gameIsOver && userNumber) {
-    screen = <GameOverScreen />;
+    screen = (
+      <GameOverScreen
+        userNumber={userNumber}
+        roundsNumber={guessRounds}
+        onStartNewGame={startNewGameHandler}
+      />
+    );
   }
 
   return (
